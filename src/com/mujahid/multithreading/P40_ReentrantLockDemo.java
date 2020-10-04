@@ -1,0 +1,29 @@
+package com.mujahid.multithreading;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class P40_ReentrantLockDemo {
+
+	public static void main(String[] args) {
+
+		ReentrantLock l = new ReentrantLock();
+		l.lock();
+		
+		l.lock();
+		System.out.println("A");
+		System.out.println(l.isLocked());
+		System.out.println(l.isHeldByCurrentThread());
+		System.out.println(l.getQueueLength());
+		
+		l.unlock();
+		System.out.println("B");
+		System.out.println(l.getHoldCount());
+		System.out.println(l.isLocked());
+		
+		l.unlock();
+		System.out.println("C");
+		System.out.println(l.isLocked());
+		System.out.println(l.isFair());
+	}
+
+}
